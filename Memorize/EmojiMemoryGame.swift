@@ -3,7 +3,7 @@
 //  ViewModel
 //  Memorize
 //
-//  Created by Robert Ranf on 10/22/21.
+//  Created by Madison Ranf on 10/22/21.
 //
 
 import SwiftUI
@@ -20,7 +20,7 @@ class EmojiMemoryGame: ObservableObject {
     
     /// This is a type function (static) in order to allow it to act as a global func but bind to a specific namespace
     private static func createMemoryGame() -> MemoryGame<String> {
-        MemoryGame<String>(numberOfPairsOfCards: 12, createCardContent: {pairIndex in
+        MemoryGame<String>(numberOfPairsOfCards: 10, createCardContent: {pairIndex in
             return emojis[pairIndex]
         })
     }

@@ -3,7 +3,7 @@
 //  Model
 //  Memorize
 //
-//  Created by Robert Ranf on 10/22/21.
+//  Created by Madison Ranf on 10/22/21.
 //
 
 import Foundation
@@ -64,7 +64,7 @@ struct MemoryGame<CardContent> where CardContent: Equatable {
     
     /// Namespacing the card in MemoryGame in order to allow for other types of "cards" in the future
     struct Card: Identifiable {
-        var isFaceUp = false
+        var isFaceUp = true
         var isMatched = false
         let content: CardContent
         let id: Int

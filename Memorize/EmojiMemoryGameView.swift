@@ -3,7 +3,7 @@
 //  View
 //  Memorize
 //
-//  Created by Rob Ranf on 10/5/21.
+//  Created by Madison Ranf on 10/5/21.
 //
 
 import SwiftUI
@@ -17,66 +17,18 @@ struct EmojiMemoryGameView: View {
     var body: some View {
         VStack {
             Text("Memorize!").font(.title)
-            ScrollView {
-                LazyVGrid(columns: [GridItem(.adaptive(minimum: 65.0))]) {
-                    ForEach(game.cards) {card in
-                        CardView(card: card)
-                            .aspectRatio(2.0/2.75, contentMode: .fit)
-                            .onTapGesture {
-                                game.choose(card)
-                            }
+            AspectVGrid(items: game.cards, aspectRatio: 2/3, content: { card in
+                CardView(card: card)
+                    .padding(4)
+                    .onTapGesture {
+                        game.choose(card)
                     }
-                }
-            }
+            })
             .foregroundColor(.orange)
-//            Spacer()
-//            HStack {
-//                VStack {
-//                    halloweenButton
-//                    Text("Halloween").font(.caption).foregroundColor(.accentColor)
-//                }
-//                Spacer()
-//                VStack {
-//                    holidaysButton
-//                    Text("Holidays").font(.caption).foregroundColor(.accentColor)
-//                }
-//                Spacer()
-//                VStack {
-//                    flagsButton
-//                    Text("Flags").font(.caption).foregroundColor(.accentColor)
-//                }
-//            }
             .padding(.horizontal)
             .font(/*@START_MENU_TOKEN@*/.largeTitle/*@END_MENU_TOKEN@*/)
-        }
-        .padding()
     }
-    
-    // -TODO: The cards need to load in random order
-    
-//    var halloweenButton: some View {
-//        Button(action: {
-//            emojiTheme = 0
-//        }, label: {
-//            Image(systemName: "moon")
-//        })
-//    }
-//
-//    var holidaysButton: some View {
-//        Button(action: {
-//            emojiTheme = 1
-//        }, label: {
-//            Image(systemName: "snowflake")
-//        })
-//    }
-//
-//    var flagsButton: some View {
-//        Button(action: {
-//            emojiTheme = 2
-//        }, label: {
-//            Image(systemName: "flag")
-//        })
-//    }
+}
     
     struct CardView: View {
         let card: EmojiMemoryGame.Card
@@ -103,9 +55,9 @@ struct EmojiMemoryGameView: View {
         }
         
         private struct DrawingConstants {
-            static let cornerRadius: CGFloat = 25
+            static let cornerRadius: CGFloat = 10
             static let lineWidth: CGFloat = 3
-            static let fontScale: CGFloat = 0.8
+            static let fontScale: CGFloat = 0.75
         }
     }
     
