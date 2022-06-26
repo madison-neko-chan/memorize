@@ -64,7 +64,7 @@ struct MemoryGame<CardContent> where CardContent: Equatable {
     
     /// Namespacing the card in MemoryGame in order to allow for other types of "cards" in the future
     struct Card: Identifiable {
-        var isFaceUp = true
+        var isFaceUp = false
         var isMatched = false
         let content: CardContent
         let id: Int
